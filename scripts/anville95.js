@@ -1,12 +1,3 @@
-//if the screen is desktop, change to desktop layout
-var link = document.getElementsByTagName("link")[0];
-//Get the window dimensions
-var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-if(height / width < 1){
-	link.setAttribute("href", "css/anville95.css");
-}
-	console.log(link);
 //is the calculator on or off?
 var isCalculatorOn = true;
 //current number is string and is turned into a number ONLY upon addition to list so as to ease it's modification with the delete button
@@ -173,7 +164,7 @@ function evaluate() {
 		//Division -> Multiplication -> Addition -> Subtraction
 		//But in my implementation the subtraction comes first. You'll see when you do something like [12-33+25x9] which yields -246 when addition comes before subtraction and 204 when subtraction comes before addition 
 		for(var i = 0; i < expressionList.length; i++) {
-			if(expressionList[i] === "÷") {
+			if(expressionList[i] === "Ã·") {
 				expressionList[i - 1] = divide(expressionList[i - 1], expressionList[i + 1]);
 				removeItems(i, 2);
 				i -= 1;
@@ -295,7 +286,7 @@ clearButton.onclick = () => {
 	clear();
 }
 divideButton.onclick = () => {
-	appendOperator("÷");
+	appendOperator("Ã·");
 }
 multiplyButton.onclick = () => {
 	appendOperator("x");
